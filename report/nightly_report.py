@@ -1,4 +1,4 @@
-"""Nightly customer report. Reads from a view, not the table directly."""
+"""Nightly customer report."""
 import csv
 import os
 import sys

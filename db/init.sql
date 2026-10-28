@@ -6,8 +6,6 @@ CREATE TABLE customers (
     created_at    TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
--- Hidden consumer: the nightly report reads through this view,
--- so searching the Python code for "customer_name" will not find it.
 CREATE VIEW v_customer_report AS
 SELECT id,
        customer_name AS display_name,
@@ -16,7 +14,6 @@ SELECT id,
        created_at
 FROM customers;
 
--- Seed data, including the edge cases
 INSERT INTO customers (customer_name, email, welcomed) VALUES
     ('Mary Ann Smith',  'maryann@example.com', TRUE),
     ('Madonna',         'madonna@example.com', TRUE),
